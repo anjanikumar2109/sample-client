@@ -1,0 +1,14 @@
+<td-navigation-drawer flex>
+  <md-list>
+    <!-- dense -->
+    <a *ngFor="let item of routes" md-list-item (click)="config.close()" [routerLink]="[item.route]"
+       routerLinkActive="active">
+      <md-icon>{{item.icon}}</md-icon>
+      {{item.title}}</a>
+  </md-list>
+  <!--<div td-navigation-drawer-menu>
+  <md-nav-list>
+    <a *ngFor="let item of usermenu" md-list-item (click)="config.close()" [routerLink]="[item.route]"><md-icon>{{item.icon}}</md-icon>{{item.title}}</a>
+  </md-nav-list>
+</div>-->
+</td-navigation-drawer>

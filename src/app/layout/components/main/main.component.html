@@ -1,0 +1,10 @@
+<td-layout #layout [mode]="'over'" [opened]="sideNavOpened" [sidenavWidth]="257">
+  <md-nav-list td-sidenav-content #sideNav>
+    <app-sidenav [config]="layout" #sideNavContent></app-sidenav>
+  </md-nav-list>
+  <app-header [config]="layout" (onChange)="headerChange($event)" #header></app-header>
+
+  <router-outlet #routeOutlet></router-outlet>
+
+  <!--<app-footer #footer></app-footer>-->
+</td-layout>

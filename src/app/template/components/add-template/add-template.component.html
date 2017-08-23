@@ -1,0 +1,37 @@
+<h3 md-dialog-title>{{title}}</h3>
+<md-dialog-content>
+  <md-input-container class="block">
+    <input mdInput placeholder="Name" required [(ngModel)]="template.name">
+  </md-input-container>
+  <md-input-container class="block">
+    <input mdInput placeholder="Description" required [(ngModel)]="template.description">
+  </md-input-container>
+  <div layout="row" layout-wrap layout-align="start stretch">
+    <h4>Task
+      <button md-icon-button md-raised-button (click)="addNewTask();">
+        <md-icon>add</md-icon>
+      </button>
+    </h4>
+  </div>
+  <div layout="row" *ngFor="let task of template.tasks" layout-wrap layout-align="start stretch">
+    <div layout-md="60">
+      <md-input-container flex>
+        <input mdInput placeholder="Name" required [(ngModel)]="task.name">
+      </md-input-container>
+    </div>
+    <div layout-md="20">
+      <md-input-container flex>
+        <input mdInput placeholder="Description" required [(ngModel)]="task.description">
+      </md-input-container>
+    </div>
+    <div layout-md="20">
+      <button md-icon-button md-raised-button (click)="removeTask(task);">
+        <md-icon>remove</md-icon>
+      </button>
+    </div>
+  </div>
+</md-dialog-content>
+<div md-dialog-actions>
+  <button md-raised-button (click)="closeModal();" class="push-right-sm">Cancel</button>
+  <button md-raised-button (click)="addUpdateTemplate();" color="primary">Save</button>
+</div>

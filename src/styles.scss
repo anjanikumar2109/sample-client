@@ -1,0 +1,312 @@
+// Custom style for loading elements without height
+.will-load {
+    min-height: 80px;
+}
+
+// Href line height wasn't right for md-icon-button
+a[md-icon-button] {
+    line-height: 36px;
+}
+
+// Capitalize
+.text-capital {
+    text-transform: capitalize;
+}
+
+// Lighter font weight in sub-toolbars
+td-layout-manage-list .mat-toolbar {
+    font-weight: 400;
+}
+
+// CUSTOM GLOBAL SCSS
+.main-container {
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.mat-input-underline .mat-input-ripple {
+    background: #fff !important;
+}
+
+.mat-list-item.active {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.api-text {
+    flex: 1 1 auto
+}
+
+.ui-datatable {
+    .ui-datatable-thead>tr>th,
+    .ui-datatable-tfoot>tr>td,
+    .ui-datatable-data>tr>td {
+        font-size: 14px;
+        text-align: left;
+        border: none;
+        color: #4a4c50;
+        border-bottom: 1px solid #ddd;
+    }
+    .ui-datatable-thead>tr>th {
+        background: none;
+        padding: .25em .5em .75em;
+        span.ui-column-title {
+            font-size: 12px;
+            font-weight: 500;
+            color: rgba(0, 0, 0, .54);
+        }
+    }
+    .ui-datatable-data>tr>td {
+        span {
+            &.ui-cell-data {
+                color: rgba(0, 0, 0, .87)
+            }
+        }
+    }
+    tbody>tr.ui-widget-content {
+        border-color: #eee;
+    }
+    tbody>tr.ui-widget-content.ui-datatable-odd {
+        background: #fff;
+    }
+    .ui-paginator-bottom {
+        border: none;
+        background: none;
+        text-align: left;
+    }
+    .ui-paginator .ui-paginator-page.ui-state-active {
+        border-radius: 0px;
+        background: #1976d2;
+        border-color: #1976d2;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        transform: translate3d(0, 0, 0);
+        transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+    }
+    .ui-widget-content {
+        border: none;
+    }
+    .ui-paginator-bottom {
+        .ui-paginator-element {
+            border: none;
+        }
+    }
+}
+
+#maincontent {
+    .ui-datatable {
+        .ui-datatable-thead>tr>th {
+            padding: .25em .5em;
+        }
+        .ui-datatable-data>tr>td {
+            padding: 0.75em .5em;
+        }
+    }
+}
+
+.main-content-data {
+    .ui-datatable {
+        .ui-datatable-thead>tr>th {
+            padding: 0.75em .5em !important;
+        }
+        .ui-datatable-data>tr>td {
+            padding: 0.75em .5em;
+        }
+    }
+}
+
+.admin-main-content {
+    .ui-datatable {
+        .ui-datatable-thead>tr>th {
+            padding: 0.75em .5em !important;
+        }
+        .ui-datatable-data>tr>td {
+            padding: 0em .5em !important;
+        }
+    }
+}
+
+md-sidenav {
+    width: 250px;
+}
+
+.mat-sidenav-content {
+    margin-left: 250px;
+}
+
+.mat-list,
+.mat-nav-list {
+    padding: 0px !important;
+}
+
+.ui-treetable {
+    margin: 0 20px 20px;
+    table {
+        &.ui-widget-content {
+            border: none;
+            tr {
+                &.ui-state-default {
+                    border: none;
+                    border-bottom: 1px solid #d6d6d6;
+                }
+            }
+            tbody {
+                &.ui-widget-content {
+                    border: none;
+                    border-bottom: 1px solid #D5D5D5;
+                }
+            }
+        }
+    }
+}
+
+.ui-treetable tbody .ui-treetable-row td {
+    padding: 0.75em .5em;
+    font-size: 14px;
+    span {
+        color: rgba(0, 0, 0, .87)
+    }
+}
+
+.ui-treetable td.ui-treetable-child-table-container {
+    padding: 0 !important;
+    tbody {
+         :last-child {
+            td {
+                border: none;
+            }
+        }
+    }
+}
+
+.ui-treetable,
+.ui-treetable-child-table-container {
+    tbody {
+        // &:last-child {
+        //     .ui-treetable-row td {
+        //         border-bottom: none;
+        //     }
+        // }
+        .ui-treetable-row td {
+            border-bottom: 1px solid #ddd;
+        }
+    }
+}
+
+.ui-treetable thead th {
+    text-align: left;
+    padding: 12px;
+    border: none;
+    background: #fff !important;
+    font-size: 14px;
+    span.ui-column-title {
+        font-size: 12px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, .54);
+    }
+}
+
+.pad-top-none {
+    padding-top: 0 !important;
+}
+
+.push-none {
+    margin: 0 !important;
+}
+
+.ui-datatable tbody>tr.ui-widget-content.ui-state-highlight {
+    background-color: #ffffff !important;
+    color: #222222 !important;
+}
+
+.ui-state-highlight {
+    border-color: #eee !important;
+    background: #ffffff !important;
+    color: #222222 !important;
+}
+
+.mat-card-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+md-progress-spinner {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.main-content-data {
+    .td-step-body .td-step-content {
+        margin-top: 0px;
+    }
+}
+
+.mat-dialog-actions:last-child {
+    margin-bottom: -12px !important;
+}
+
+.td-search-box td-search-input {
+    margin-left: 0px !important;
+}
+
+.ngx-charts-outer {
+    margin: 0 auto;
+}
+
+.td-search-input {
+    .mat-input-wrapper {
+        padding-bottom: 16px;
+        font-size: 16px;
+    }
+    .mat-input-placeholder {
+        color: rgba(238, 238, 238, 0.5);
+    }
+    .mat-focused .mat-input-placeholder {
+        color: #1976d2;
+    }
+    .mat-input-underline {
+        background: rgba(255, 255, 255, 0.4)
+    }
+}
+.cdk-overlay-dark-backdrop {
+  background: hsla(0,0%,100%,.8);
+}
+.ui-datatable {
+    .ui-paginator-bottom {
+        margin-top: 10px;
+    }
+}
+
+.ui-datatable tbody>tr.ui-widget-content {
+    line-height: 19px;
+}
+
+.ui-datatable-frozen-view {
+    tr {
+        td {
+            padding: 0px !important;
+        }
+    }
+}
+
+.ui-datatable .ui-datatable-frozen-view .ui-datatable-data>tr>td,
+.ui-datatable .ui-datatable-unfrozen-view .ui-datatable-data>tr>td {
+    height: 24px;
+}
+
+a.action {
+    cursor: pointer;
+    vertical-align: middle;
+    display: flex;
+}
+
+#main{
+  overflow:auto;
+  height: calc(100vh - 148px);
+
+  @media only screen and (max-width: 767px){
+    height: calc(100vh - 140px);
+  }
+}

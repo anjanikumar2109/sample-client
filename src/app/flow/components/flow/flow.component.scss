@@ -1,0 +1,46 @@
+.chart-height {
+  height: 200px;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.dashboard-mapping-chart {
+  height: 500px;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+.table-header {
+  min-height: 64px;
+  display: flex;
+  align-items: baseline;
+  padding: 8px 24px 0;
+  font-size: 20px;
+  justify-content: space-between;
+}
+
+.mat-input-container {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-left: 32px;
+}
+
+.mat-table {
+  overflow: auto;
+}
+
+.mat-header-cell .mat-sort-header-sorted {
+  color: black;
+}
+
+a.action {
+  cursor: pointer;
+  vertical-align: middle;
+  display: flex;
+}

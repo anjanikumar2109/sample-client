@@ -1,0 +1,67 @@
+<md-toolbar>
+  <span class="api-text" layout-margin layout-padding>Templates</span>
+  <a md-fab class="muted-btn" color="accent" class="mat-fab-bottom-right absolute" (click)="addNew();" mdTooltip="Add New Template">
+    <md-icon>add</md-icon>
+  </a>
+</md-toolbar>
+
+<md-card>
+  <div class="table-container mat-elevation-z8">
+    <div class="table-header">
+      <md-input-container floatPlaceholder="never">
+        <input mdInput #filter placeholder="Search">
+      </md-input-container>
+    </div>
+
+    <md-table #table [dataSource]="dataSource" mdSort>
+      <ng-container cdkColumnDef="id">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>ID</md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.id}}</md-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="name">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>Name</md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.name}}</md-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="description">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>Description</md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.description}}</md-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="createdOn">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>Created On</md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.createdOn | date:'short'}}</md-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="modifiedOn">
+        <md-header-cell *cdkHeaderCellDef md-sort-header>Modified On</md-header-cell>
+        <md-cell *cdkCellDef="let row">{{row.modifiedOn | date:'short'}}</md-cell>
+      </ng-container>
+      <ng-container cdkColumnDef="actions">
+        <md-header-cell *cdkHeaderCellDef>Actions</md-header-cell>
+        <md-cell *cdkCellDef="let row">
+          <a [mdMenuTriggerFor]="menu" class="action">
+            <md-icon>more_horiz</md-icon>
+          </a>
+          <md-menu #menu="mdMenu">
+            <button md-menu-item (click)="editTemplate(row);">
+              <md-icon>search</md-icon>
+              <span>View</span></button>
+            <button md-menu-item (click)="createFlow(row);">
+              <md-icon>settings</md-icon>
+              <span>Create Flow</span></button>
+            <button md-menu-item (click)="deleteTemplate(row);">
+              <md-icon>delete</md-icon>
+              <span>Delete</span></button>
+          </md-menu>
+        </md-cell>
+      </ng-container>
+      <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+      <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+
+    <md-paginator #paginator
+                  [length]="exampleDatabase.data.length"
+                  [pageIndex]="0"
+                  [pageSize]="5"
+                  [pageSizeOptions]="[5, 10, 25, 100]">
+    </md-paginator>
+  </div>
+</md-card>

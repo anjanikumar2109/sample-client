@@ -1,0 +1,9 @@
+.md-subhead {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.mat-icon-button,
+.md-subhead {
+    vertical-align: middle;
+}
