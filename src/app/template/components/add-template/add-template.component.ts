@@ -1,6 +1,7 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {Template} from '../../interfaces/template';
-import {MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MdDialog, MdDialogRef, MD_DIALOG_DATA, MdDialogConfig} from '@angular/material';
+import {AddFilterComponent} from '../add-filter/add-filter.component';
 
 @Component({
   selector: 'app-add-template',
@@ -11,12 +12,12 @@ export class AddTemplateComponent implements OnInit {
   template: Template;
   title: string = '';
 
-  constructor(public dialogRef: MdDialogRef<AddTemplateComponent>, @Inject(MD_DIALOG_DATA) public data: Template) {
+  constructor(public dialog: MdDialog, public dialogRef: MdDialogRef<AddTemplateComponent>, @Inject(MD_DIALOG_DATA) public data: Template) {
     this.template = data || <Template>{tasks: []};
-    if(!this.template.tasks) {
+    if (!this.template.tasks) {
       this.template.tasks = [];
     }
-    this.title = data ? 'Edit Template': 'Add Template';
+    this.title = data ? 'Edit Template' : 'Add Template';
   }
 
   ngOnInit() {
@@ -29,6 +30,21 @@ export class AddTemplateComponent implements OnInit {
 
   removeTask(task) {
     this.template.tasks = this.template.tasks.filter(t => t.id !== task.id);
+  }
+
+  addFilter(task) {
+    let dialogRef = this.dialog.open(AddFilterComponent, <MdDialogConfig>{
+      height: '600px',
+      width: '600px',
+      hasBackdrop: true,
+      disableClose: false,
+      data: task
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        task = result;
+      }
+    });
   }
 
   closeModal() {

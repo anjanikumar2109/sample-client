@@ -1,0 +1,31 @@
+<h3 md-dialog-title>{{title}}</h3>
+<md-dialog-content>
+  <div layout="row" layout-wrap layout-align="start stretch">
+    <h4>Filter
+      <button md-icon-button md-raised-button (click)="addNewFilter();">
+        <md-icon>add</md-icon>
+      </button>
+    </h4>
+  </div>
+  <div layout="row" *ngFor="let filter of task.filters" layout-wrap layout-align="start stretch">
+    <div layout-md="60">
+      <md-input-container flex>
+        <input mdInput placeholder="Name" required [(ngModel)]="filter.name">
+      </md-input-container>
+    </div>
+    <div layout-md="20">
+      <md-input-container flex>
+        <input mdInput placeholder="Description" required [(ngModel)]="filter.description">
+      </md-input-container>
+    </div>
+    <div layout-md="20">
+      <button md-icon-button md-raised-button (click)="removeFilter(filter);">
+        <md-icon>remove</md-icon>
+      </button>
+    </div>
+  </div>
+</md-dialog-content>
+<div md-dialog-actions>
+  <button md-raised-button (click)="closeModal();" class="push-right-sm">Cancel</button>
+  <button md-raised-button (click)="addUpdateTemplate();" color="primary">Save</button>
+</div>

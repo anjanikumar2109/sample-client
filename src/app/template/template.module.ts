@@ -7,6 +7,7 @@ import {SharedModule} from '../shared/shared.module';
 import {TemplateApiService} from './services/template-api.service';
 import {LayoutService} from '../layout/services/layout.service';
 import { AddTemplateComponent } from './components/add-template/add-template.component';
+import { AddFilterComponent } from './components/add-filter/add-filter.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,8 @@ import { AddTemplateComponent } from './components/add-template/add-template.com
   providers: [
     TemplateApiService
   ],
-  declarations: [TemplateComponent, AddTemplateComponent],
-  entryComponents: [AddTemplateComponent],
+  declarations: [TemplateComponent, AddTemplateComponent, AddFilterComponent],
+  entryComponents: [AddTemplateComponent, AddFilterComponent],
 })
 export class TemplateModule {
   constructor(private layoutService: LayoutService) {

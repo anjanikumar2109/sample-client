@@ -43,6 +43,10 @@ export class TemplateComponent implements OnInit {
       });
   }
 
+  ngOnDestroy(): void {
+    this.exampleDatabase.unSubscribeToData();
+  }
+
   addNew() {
     let dialogRef = this.dialog.open(AddTemplateComponent, <MdDialogConfig>{
       height: '600px',
@@ -104,6 +108,9 @@ export class TemplateComponent implements OnInit {
 export class TableDatabase {
   dataChange: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   templateApiService: any;
+  templatesSubscription: any;
+  timerSubscription: any;
+
   get data(): any[] {
     return this.dataChange.value;
   }
@@ -114,9 +121,23 @@ export class TableDatabase {
   }
 
   getData() {
-    this.templateApiService.getTemplates().subscribe(data => {
+    this.templatesSubscription = this.templateApiService.getTemplates().subscribe(data => {
       this.dataChange.next(data);
+      this.subscribeToData();
     })
+  }
+
+  subscribeToData(): void {
+    this.timerSubscription = Observable.timer(5000).first().subscribe(() => this.getData());
+  }
+
+  unSubscribeToData(): void {
+    if (this.templatesSubscription) {
+      this.templatesSubscription.unsubscribe();
+    }
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
   }
 }
 
