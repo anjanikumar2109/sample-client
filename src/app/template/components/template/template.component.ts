@@ -122,7 +122,10 @@ export class TableDatabase {
 
   getData() {
     this.templatesSubscription = this.templateApiService.getTemplates().subscribe(data => {
-      this.dataChange.next(data);
+      const records = data.sort((a, b) => {
+        return a.id - b.id;
+      });
+      this.dataChange.next(records);
       this.subscribeToData();
     })
   }
